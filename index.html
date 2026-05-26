@@ -1,290 +1,131 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>mirrors.kernel.org</title>
-    <link type="text/css" rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="/images/favicon.ico" type="image/png" />
-  </head>
+<head>
+  <title>Financial Reality Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <body>
-    <div align="center">
-      <img
-        src="/images/mirror.png"
-        width="468"
-        height="141"
-        border="0"
-        alt="mirrors.kernel.org"
-      />
-      <p>
-        Welcome to mirrors.kernel.org, a service of the
-        <a href="https://www.kernel.org/">Linux Kernel Archives</a>. This site
-        contains our archives of mirrors of other sites.
-      </p>
+  <style>
+    body {
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
 
-      <div align="center">
-        <a name="access" id="access"></a>
-        <table cellpadding="10">
-          <tr>
-            <th>Protocol</th>
-            <th>Location</th>
-          </tr>
+    h1 {
+      font-size: 32px;
+    }
 
-          <tr>
-            <td>HTTP</td>
-            <td>
-              <a href="https://mirrors.kernel.org/"
-                >https://mirrors.kernel.org/</a
-              >
-            </td>
-          </tr>
+    p {
+      color: #94a3b8;
+    }
 
-          <tr>
-            <td><a href="https://rsync.samba.org/">RSYNC</a></td>
-            <td>rsync://mirrors.kernel.org/mirrors/</td>
-          </tr>
-        </table>
+    .box {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      margin: auto;
+      margin-top: 20px;
+    }
 
-        <p><a name="directory" id="directory"></a></p>
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+    }
 
-        <table cellpadding="10">
-          <tr>
-            <th width="85%">Description</th>
-            <th width="15%">Location</th>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://www.alpinelinux.org/">Alpine Linux</a>, a small
-              distribution frequently used for container images
-            </td>
-            <td>
-              <a href="alpine/"><tt>alpine</tt></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://www.archlinux.org/">Arch Linux</a>, a simple,
-              lightweight Linux distribution
-            </td>
-            <td>
-              <a href="archlinux/"><tt>archlinux</tt></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://www.centos.org/">CentOS</a>, an Enterprise-class
-              Linux Distribution "derived from sources freely provided to the
-              public by <a href="https://www.redhat.com/">Red Hat</a>"
-            </td>
-            <td>
-              <a href="centos/"><tt>centos</tt></a>
-            </td>
-          </tr>
+    button {
+      background: #3b82f6;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-          <tr>
-            <td>
-              <a href="https://www.cpan.org/"
-                >The Comprehensive Perl Archive Network (CPAN)</a
-              >
-            </td>
-            <td>
-              <a href="CPAN/"><tt>CPAN</tt></a>
-            </td>
-          </tr>
+    button:hover {
+      background: #2563eb;
+    }
 
-          <tr>
-            <td>
-              The <a href="https://www.debian.org/">Debian</a> Linux
-              distribution
-            </td>
-            <td>
-              <a href="debian/"><tt>debian</tt></a
-              ><br />
-              <a href="debian-cd/"><tt>debian-cd</tt></a>
-            </td>
-          </tr>
+    .result {
+      margin-top: 20px;
+      text-align: left;
+      background: #020617;
+      padding: 15px;
+      border-radius: 10px;
+    }
 
-          <tr>
-            <td>
-              <a href="https://www.deepin.org/">Deepin</a>, a distribution
-              aiming to provide an elegant desktop
-            </td>
-            <td>
-              <a href="deepin/"><tt>deepin</tt></a
-              ><br />
-              <a href="deepin-cd/"><tt>deepin-cd</tt></a>
-            </td>
-          </tr>
+    strong {
+      color: #38bdf8;
+    }
+  </style>
+</head>
 
-          <tr>
-            <td>
-              <a href="https://fedoraproject.org">Fedora</a>, Red Hat's
-              "community project" Linux distribution
-            </td>
-            <td>
-              <a href="fedora/"><tt>fedora</tt></a
-              ><br />
-              <a href="fedora-epel/"><tt>fedora-epel</tt></a>
-            </td>
-          </tr>
+<body>
 
-          <tr>
-            <td><a href="https://www.gentoo.org">Gentoo</a> Linux</td>
-            <td>
-              <a href="gentoo/"><tt>gentoo</tt></a
-              ><br />
-              <a href="gentoo-portage/"><tt>gentoo-portage</tt></a
-              ><br />
-            </td>
-          </tr>
+<h1>Financial Reality Calculator</h1>
+<p>Not what you earn — what you actually keep</p>
 
-          <tr>
-            <td>
-              <a href="https://www.gnu.org/"
-                >The Free Software Foundation (The GNU Project)</a
-              >
-            </td>
-            <td>
-              <a href="gnu/"><tt>gnu</tt></a>
-            </td>
-          </tr>
+<div class="box">
 
-          <tr>
-            <td><a href="https://www.linuxmint.com">Linux Mint</a></td>
-            <td>
-              <a href="linuxmint/"><tt>linuxmint</tt></a
-              ><br />
-              <a href="linuxmint-packages/"><tt>linuxmint-packages</tt></a
-              ><br />
-            </td>
-          </tr>
+  <input type="number" placeholder="Hourly Rate ($)" id="rate">
+  <input type="number" placeholder="Hours per Week" id="hours">
+  <input type="number" placeholder="Tax % (estimate)" id="tax">
+  <input type="number" placeholder="Monthly Expenses (optional)" id="expenses">
 
-          <tr>
-            <td><a href="https://www.mageia.org/">Mageia</a> Project</td>
-            <td>
-              <a href="mageia/"><tt>mageia</tt></a>
-            </td>
-          </tr>
+  <button onclick="calc()">Calculate</button>
 
-          <tr>
-            <td><a href="https://www.opensuse.org/">openSUSE</a> Project</td>
-            <td>
-              <a href="opensuse/"><tt>opensuse</tt></a>
-            </td>
-          </tr>
+  <div class="result" id="output"></div>
 
-          <tr>
-            <td>
-              <a href="https://www.oracle.com/linux">Oracle Linux</a>, a
-              repackaged distribution based on RHEL (ISOs only)
-            </td>
-            <td>
-              <a href="oracle/"><tt>oracle</tt></a>
-            </td>
-          </tr>
+</div>
 
-          <tr>
-            <td>
-              <a href="https://www.qubes-os.org/">Qubes OS Project</a>, an OS
-              designed to provide strong workstation security via
-              compartmentalization
-            </td>
-            <td>
-              <a href="qubes/"><tt>qubes</tt></a>
-            </td>
-          </tr>
+<script>
+function calc() {
 
-          <tr>
-            <td>
-              <a href="https://www.sourceware.org/">sourceware.org</a>, an
-              archive of various free software, mostly development tools
-            </td>
-            <td>
-              <a href="sourceware/"><tt>sourceware</tt></a>
-            </td>
-          </tr>
+  let rate = parseFloat(document.getElementById("rate").value) || 0;
+  let hours = parseFloat(document.getElementById("hours").value) || 0;
+  let tax = (parseFloat(document.getElementById("tax").value) || 0) / 100;
+  let expenses = parseFloat(document.getElementById("expenses").value) || 0;
 
-          <tr>
-            <td><a href="https://www.slackware.com/">Slackware Linux</a></td>
-            <td>
-              <a href="slackware/"><tt>slackware</tt></a>
-            </td>
-          </tr>
+  let weekly = rate * hours;
+  let yearly = weekly * 52;
+  let monthly = yearly / 12;
 
-          <tr>
-            <td>
-              <a href="https://tails.boum.org/">Tails</a>, a live distribution
-              aiming to preserve your privacy and anonimity
-            </td>
-            <td>
-              <a href="tails/"><tt>tails</tt></a>
-            </td>
-          </tr>
+  let afterTaxYear = yearly * (1 - tax);
+  let afterTaxMonth = monthly * (1 - tax);
+  let afterTaxWeek = weekly * (1 - tax);
 
-          <tr>
-            <td>
-              <a href="https://www.ubuntu.com/">Ubuntu</a>, a Linux distribution
-              from <a href="https://www.canonical.com/">Canonical</a>
-            </td>
-            <td>
-              <a href="ubuntu/"><tt>ubuntu</tt></a
-              ><br />
-              <a href="ubuntu-releases/"><tt>ubuntu-releases</tt></a>
-            </td>
-          </tr>
+  let afterExpenses = afterTaxMonth - expenses;
 
-          <tr>
-            <td>
-              The
-              <a href="https://www.linuxfoundation.org/">Linux Foundation</a>
-              <a href="https://www.yoctoproject.org/">Yocto Project</a>, a
-              deeply embeddable Linux distribution
-            </td>
-            <td>
-              <a href="yocto/"><tt>yocto</tt></a>
-            </td>
-          </tr>
-        </table>
+  let realHourly = (afterTaxYear / (hours * 52)) || 0;
 
-        <p class="notice">
-          Please note all contents are provided by the origin sites and are
-          mirrored here by automation. The Linux Kernel Archives is providing
-          this as a service to the general public and to the origin sites but is
-          not responsible for any content.
-        </p>
+  let lost = yearly - afterTaxYear;
+  let lostPercent = (lost / yearly) * 100 || 0;
 
-        <p>
-          <a href="https://www.kernel.org/"
-            >Home page of the Linux Kernel Archives</a
-          >
-        </p>
-      </div>
+  let monthsLost = (lost / yearly) * 12 || 0;
 
-      <hr />
+  document.getElementById("output").innerHTML = `
+    <strong>Yearly (After Tax):</strong> $${afterTaxYear.toFixed(2)}<br><br>
 
-      <p class="notice">
-        This site is operated by the Linux Kernel Organization, Inc., a
-        <a href="https://www.kernel.org/nonprofit.html"
-          >501(c)3 nonprofit corporation</a
-        >, with support from the following sponsors.
-      </p>
+    <strong>Monthly Take Home:</strong> $${afterTaxMonth.toFixed(2)}<br>
+    <strong>Weekly Take Home:</strong> $${afterTaxWeek.toFixed(2)}<br><br>
 
-      <hr />
+    <strong>Real Hourly Rate:</strong> $${realHourly.toFixed(2)} / hr<br><br>
 
-      <a name="sponsors"></a> <a name="donors"></a>
+    <strong>After Expenses (Monthly):</strong> $${afterExpenses.toFixed(2)}<br><br>
 
-      <div id="donors" align="center">
-	<p>
-          <a href="https://servers.com/"><img src="/images/serverscom.svg" width="195" height="40" alt="servers.com"/></a>
-        </p>
-	<p>
-          <a href="https://www.linuxfoundation.org/"><img src="/images/lf-stacked-color.svg" alt="The Linux Foundation" width="131" height="40" /></a>
-	<p>
-      </div>
-    </div>
-  </body>
+    <strong>Total Lost to Taxes:</strong> $${lost.toFixed(2)} (${lostPercent.toFixed(1)}%)<br><br>
+
+    <strong>Time Lost Per Year:</strong> ${monthsLost.toFixed(1)} months
+  `;
+}
+</script>
+
+</body>
 </html>
-
-<!--
-vim: et ts=2 sw=2
--->
